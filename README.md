@@ -2,6 +2,20 @@
 this is just a simple AI assistant that uses olama and whisper
 this app is fully local and needs no internet connection to work
 
+keywords: if you day these words in one sentence, jarvis will do what they do</br>
+forget, chat: this will clear your chat history</br>
+repeating, chat: this will enable repeating chat, something live gemeni live or gpt-4o</br>
+stop: this will stop the conversation</br>
+
+‼️note that this allaws AI to run command on your system anf if AI does something that breacks your system I am NOT responsible for it‼️</br>
+ there is a failsafe to stop ai from doing dangres things but you still have 3 seconds befor it runs the code that ai made to see if its harmfull
+ for now all you can do is to power of your ps if the command is dagres but i try to add a better way in the future</br>
+
+a presentation video:</br>
+https://github.com/user-attachments/assets/d23b8733-ebd4-4a9b-9468-1d950d6c52fc
+
+
+
 reqirements:</br>
 notifypy `pip install notifypy`</br>
 whisper `pip install whisper`</br>
