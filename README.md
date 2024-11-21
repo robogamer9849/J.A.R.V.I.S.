@@ -18,13 +18,20 @@ a presentation video:
 
 
 reqirements:</br>
+python:</br>
 notifypy `pip install notifypy`</br>
 whisper `pip install whisper`</br>
 sounddevice `pip install sounddevice`</br>
 wavio `pip install wavio`</br>
 ollama python `pip install ollama`</br>
 subprocess `pip install subprocess`</br>
+app:</br>
 [ollama app](www.ollama.com)</br>
+ espeak:</br> 
+  arch: `sudo pacman -S espeak`</br> 
+  debian/ubuntu: `sudo apt install espeak`</br> 
+  fedora: `dnf install espeak`</br> 
+  windows/mac : idk😅
 
 how to install:</br>
 1. clone this repo: `git clone https://github.com/robogamer9849/J.A.R.V.I.S..git`</br>
