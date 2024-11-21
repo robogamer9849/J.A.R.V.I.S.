@@ -12,7 +12,8 @@ stop: this will stop the conversation</br>
  for now all you can do is to power of your ps if the command is dagres but i try to add a better way in the future</br>
 
 a presentation video:
-[![Watch the video](https://github.com/user-attachments/assets/d23b8733-ebd4-4a9b-9468-1d950d6c52fc)]
+[![Watch the video](https://github.com/user-attachments/assets/87a30e82-adac-4c91-a78d-03da7f0ee324)](https://github.com/user-attachments/assets/d23b8733-ebd4-4a9b-9468-1d950d6c52fc)
+
 
 
 
