@@ -7,7 +7,7 @@ forget, chat: this will clear your chat history</br>
 repeating, chat: this will enable repeating chat, something live gemeni live or gpt-4o</br>
 stop: this will stop the conversation</br>
 
-‼️note that this allaws AI to run command on your system anf if AI does something that breacks your system I am NOT responsible for it‼️</br>
+‼️note that this allaws AI to run command on your system and if AI does something that breacks your system I am NOT responsible for it‼️</br>
  there is a failsafe to stop ai from doing dangres things but you still have 3 seconds befor it runs the code that ai made to see if its harmfull
  for now all you can do is to power of your ps if the command is dagres but i try to add a better way in the future</br>
 
