@@ -11,5 +11,9 @@ subprocess `pip install subprocess`</br>
 [ollama app](www.ollama.com)</br>
 
 how to install:</br>
-1. clone this repo: `git clone `</br>
-2. run **main.py**</br>
+1. clone this repo: `git clone https://github.com/robogamer9849/J.A.R.V.I.S..git`</br>
+2. `cd J.A.R.V.I.S.`
+3. run **main.py**: `python PATH/TO/MAIN.PY`</br>
+
+for easy acces bind a keyboard shortcut to `python PATH/TO/MAIN.PY`:
+on linux gnome: setting > keyboard > keyboard shortcuts > add shortcut
