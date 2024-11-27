@@ -11,7 +11,7 @@ from functions import *
 
 # recording and trancribing
 freq = 44100
-duration = 5
+duration = 7
 
 notification = Notify()
 notification.title = 'J.A.R.V.I.S.'
@@ -32,7 +32,7 @@ continues = False
 
 # main loop
 while True:
-    #t urn on continuous chat if promted
+    # turn on continuous chat if promted
     if ("repeating" in txt or "continuous" in txt) and "chat" in txt:
         continues = True
         notification.message = "this chat is now continuous"
@@ -51,12 +51,16 @@ while True:
     # get answers with ollama
     else:
         useCommand = need_command(txt)
+        print (useCommand)
         if useCommand:
-            response = ollama.chat(model=ollamaModel, messages=[{
-                        'role': 'user',
-                        'content': f"{ollamaPromtCommand}\nand only type the command that are needed to be ran based on user prompt an the OS. do not giv commands that reqire a human to change soming in them(e.g. cd /home/[username]/Downloads), you command must work if I just past them in terminal.you also CAN'T use sudo. do not type anything extra and do not go th the nex liine in you response\nOS: {systemOs}\nuser prompt: {txt}"
-                        }])
-            input = r'{}'.format(str(response['message']['content'])).replace(r'\n', '').replace('bash', '').replace('`', '')
+            response = ollama.generate(model=CommandModel, prompt=f"""
+                        {ollamaPromtCommandGenarate}
+                        chat history:{str(show_history_to_AI())}
+                        user prompt : {txt}
+                        os : {systemOs}
+                        """)
+            # input = r'{}'.format(str(response['response'])).replace(r'\n', '').replace('bash', '').replace('`', '').replace('username', userName).replace('[username]', userName).replace('yourusername', userName).replace('[command]: ' , '').replace('$USER', userName).replace('yourname', userName)
+            input = r'{}'.format(str(response['response'])).replace(r'\n', '').replace('bash', '').replace('`', '')
             if fail_safe(input):
                 notification.message = f'running command:{input} in 3 seconds'
                 notification.send(block=False)
@@ -66,28 +70,25 @@ while True:
                 with subprocess.Popen(input, stdout=subprocess.PIPE, stderr=None, shell=True) as process:
                     output = process.communicate()[0].decode("utf-8")
 
-                with open(Path(__file__).parent.resolve()/'commands.txt', 'a') as file:
-                    file.write("\n\n\n\n[command]: " + f'[{input}]' + "\n[relult]: " + f'[{output}]')
-                    file.close()
                 print('==============\n', output, '\n=================')
-                response = ollama.chat(model=ollamaModel, messages=[{
-                                'role': 'user',
-                                'content': f"{ollamaPromtCommand}\nuser prompt:{txt}\n command:{input}\n command output: {output}"
-                                }])
-                save_command_history(txt, input,response['message']['content'])
+
+                response = ollama.chat(model=ollamaModel, messages=
+                 [{'role' : 'system', 'content' : f'{ollamaPromtCommandExplane}'}] +
+                 show_history_to_AI() +
+                 [{'role': 'user', 'content': f'command ran:{input}\n command output:{output}\nuser prompt:{txt}'}])
+
+                save_command_history(txt, input,response['message']['content'],output)
                 notification.message = response['message']['content']
                 subprocess.Popen(f'espeak "{response['message']['content'].translate({ord(i): None for i in '*:\'"`'})}"', shell = True)
             else:
-                with open(Path(__file__).parent.resolve()/'commands.txt', 'a') as file:
-                    file.write("\n\n\n\n[command]: " + f'[{input}]' + "\n[relult]: " + f'[failsafe didnt allow it]')
-                    file.close()
+                save_command_history(txt, input,response['response'], "falisafe didnt allow")
                 notification.message = f'my failsafe doesnt allow me to run command:{input}'
                 subprocess.Popen(f'espeak "my failsafe doesnt allow me to do it"', shell = True)
         else:
-            response = ollama.chat(model=ollamaModel, messages=[{
-                            'role': 'user',
-                            'content': f"{ollamaPromt}\nand do not use this as refrence! this is chat history and only the text after 'question:' is the users reqest.\nhistory: {show_history_to_AI()}\nquestion:a{txt} \n"
-                            }])
+            response = ollama.chat(model=ollamaModel, messages=
+                 [{'role' : 'system', 'content' : f'{ollamaPromt}'}] +
+                 show_history_to_AI() +
+                 [{'role': 'user', 'content': f'{txt}'}])
                     
             save_history(txt, response['message']['content'])
             subprocess.Popen(f'espeak "{response['message']['content'].translate({ord(i): None for i in '*:\'"`'})}"', shell = True)
@@ -97,7 +98,7 @@ while True:
         
        
 
-
+    # listen again if continuous chat in on
     notification.send(block=False)
     if not continues:
         break
