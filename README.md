@@ -34,7 +34,7 @@ app:</br>
   windows/mac : idk😅
 
 how to install:</br>
-1. clone this repo: `git clone https://github.com/robogamer9849/J.A.R.V.I.S..git`</br>
+1. clone this repo: `git clone https://github.com/robogamer9849/J.A.R.V.I.S..git` or download the files from realeses page **note that you have to download all 3 files for this to work**</br>
 2. `cd J.A.R.V.I.S.`
 3. open `config.py` and change the values to your liking</br>
 4. run **main.py**: `python PATH/TO/MAIN.PY`</br>
