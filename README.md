@@ -25,6 +25,7 @@ sounddevice `pip install sounddevice`</br>
 wavio `pip install wavio`</br>
 ollama python `pip install ollama`</br>
 subprocess `pip install subprocess`</br>
+or: `pip install -r requirements.txt` to install all <br/>
 app:</br>
 [ollama app](www.ollama.com)</br>
  espeak:</br> 
@@ -38,8 +39,9 @@ how to install:</br>
 2. `cd J.A.R.V.I.S.`
 3. open `config.py` and change the values to your liking</br>
 4. run **main.py**: `python PATH/TO/MAIN.PY`</br>
+   or run **runTypingMode.py**: `python PATH/TO/RUNTYPINGMODE.PY` for text only mode
 
-for easy acces bind a keyboard shortcut to `python PATH/TO/MAIN.PY`:</br>
+for easy acces bind a keyboard shortcut to `python PATH/TO/MAIN.PY` or `python PATH/TO/RUNTYPINGMODE.PY`:</br>
 on linux gnome: setting > keyboard > view and customize shortcuts > custom shortcuts > +</br>
 on linux kde: Settings > Shortcuts > Add Application</br>
 on windows: make a file named `jarvis.bat` > open it with text editor > type the command > save > open its properties > shortcut > sortcut key</br>
