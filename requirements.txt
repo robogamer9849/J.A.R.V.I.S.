@@ -1,0 +1,5 @@
+notify-py
+openai-whisper
+sounddevice
+wavio
+ollama
