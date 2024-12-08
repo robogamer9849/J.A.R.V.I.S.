@@ -33,7 +33,7 @@ app:</br>
   debian/ubuntu: `sudo apt install espeak`</br> 
   fedora: `dnf install espeak`</br> 
   mac : `brew install espeak`<br/>
-  windows : idk😅<br/>
+  windows : [toturial](https://medium.com/@harsh_jinger/espeak-on-windows-your-key-to-effortless-text-to-speech-in-windows-terminal-f7560357aff5)<br/>
 
 how to install:</br>
 1. clone this repo: `git clone https://github.com/robogamer9849/J.A.R.V.I.S..git` or download the files from realeses page **note that you have to download all files for this to work**</br>
