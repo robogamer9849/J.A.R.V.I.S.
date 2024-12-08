@@ -32,7 +32,8 @@ app:</br>
   arch: `sudo pacman -S espeak`</br> 
   debian/ubuntu: `sudo apt install espeak`</br> 
   fedora: `dnf install espeak`</br> 
-  windows/mac : idk😅
+  mac : `brew install espeak`<br/>
+  windows : idk😅<br/>
 
 how to install:</br>
 1. clone this repo: `git clone https://github.com/robogamer9849/J.A.R.V.I.S..git` or download the files from realeses page **note that you have to download all files for this to work**</br>
